@@ -26,7 +26,10 @@ export const saveUser = async (req: Request, res: Response) => {
 
 export const getUsers = async (req: Request, res: Response) => {
 	try {
-		return await User.find();
+		const users = await User.find();
+		return res.send({
+			users
+		})
 	} catch (error) {
 		return res.status(500).send({
 			error: true,
