@@ -6,10 +6,7 @@ import authorize from '../middleware/auth.middleware';
 
 const router = express.Router();
 
-router.get('/', [], (req: Request, res: Response) => {
-	authorize
-	return res.send('return users');
-})
+router.get('/', authorize, userController.getUsers);
 
 router.post('/', userController.saveUser);
 
