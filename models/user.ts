@@ -7,12 +7,7 @@ interface IUser {
 	password: string,
 }
 
-interface UserDoc extends mongoose.Document {
-	firstname: string,
-	lastname: string,
-	email: string,
-	password: string,
-}
+interface UserDoc extends mongoose.Document, IUser {}
 
 interface UserModelInterface extends mongoose.Model<UserDoc> {
 	build(attr: IUser): UserDoc
